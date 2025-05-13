@@ -20,12 +20,14 @@
     </ul>
   </div>
   <script>
+    import {useEffect, useState} from 'react';
+
     Vue.createApp({
       data() {
         return { movies: [], books: [] };
       },
       async mounted() {
-        let m = await fetch('https://api.sampleapis.com/movies/action').then(r=>r.json());
+        let m = await fetch('https://api.sampleapis.com/movies/classic').then(r=>r.json());
         let b = await fetch('https://api.sampleapis.com/books/fantasy').then(r=>r.json());
         this.movies = m.slice(0,5);
         this.books = b.slice(0,5);

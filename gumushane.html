@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -11,12 +12,87 @@
   <div class="container py-4">
     <h2>Gümüşhane</h2>
     <p>Nüfus: 142.617 (2024)</p>
-    <h3>Gezilecek Yerler</h3>
+    <h3>Gezilecek Yerler</h3> 
     <ul>
-      <li>Karaca Mağarası</li>
-      <li>Tomara Şelalesi</li>
-      <li>Kürtün Örümcek Ormanları</li>
+      <br><br><br><li>Karaca Mağarası<br><img alt src="https://www.kulturportali.gov.tr/contents/images/20171109164808955_karaca%20magarasi%2004%20is.JPG" style="width: 600px;"></li>
+      <br><br><br><li>Tomara Şelalesi <br><img alt src="https://trthaberstatic.cdn.wp.trt.com.tr/resimler/2252000/tomara-selalesi-iha-gumushane-2253960.jpg"  style="width: 600px;"></li>
+      <br><br><br><li>Kürtün Örümcek Ormanları <br><img alt="" src="http://www.kurtun.gov.tr/kurumlar/kurtun.gov.tr/ilcemiz/orumcek800x600.jpg" style="width: 600px;"> </li>
     </ul>
   </div>
+</body>
+</html>
+-->
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gümüşhane</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container py-4">
+    <h2>Gümüşhane</h2>
+    <p>Nüfus: 142.617 (2024)</p>
+    <h3>Gezilecek Yerler</h3> 
+
+    <!-- Carousel Başlangıcı -->
+    <div id="gezilecekYerlerCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <a href="https://www.kulturportali.gov.tr/contents/images/20171109164808955_karaca%20magarasi%2004%20is.JPG" target="_blank">
+            <img src="https://www.kulturportali.gov.tr/contents/images/20171109164808955_karaca%20magarasi%2004%20is.JPG" style="width: 1400px" alt="Karaca Mağarası">
+          </a>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Karaca Mağarası</h5>
+          </div>
+        </div>
+
+          <div class="carousel-item">
+          <a href="https://www.kulturportali.gov.tr//contents/images/20161129162749792_Kurum%202010%20Kov%20(Esenyurt)%20Koyu%20Kalesi%20Merkez.jpg" target="_blank">
+            <img src="https://www.kulturportali.gov.tr//contents/images/20161129162749792_Kurum%202010%20Kov%20(Esenyurt)%20Koyu%20Kalesi%20Merkez.jpg" style="width:1400px"  alt="Tomara Şelalesi">
+          </a>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Kov Kalesi</h5>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <a href="https://trthaberstatic.cdn.wp.trt.com.tr/resimler/2252000/tomara-selalesi-iha-gumushane-2253960.jpg" target="_blank">
+            <img src="https://trthaberstatic.cdn.wp.trt.com.tr/resimler/2252000/tomara-selalesi-iha-gumushane-2253960.jpg" style="width:1400px" alt="Tomara Şelalesi">
+          </a>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Tomara Şelalesi</h5>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <a href="http://www.kurtun.gov.tr/kurumlar/kurtun.gov.tr/ilcemiz/orumcek800x600.jpg" target="_blank">
+            <img src="http://www.kurtun.gov.tr/kurumlar/kurtun.gov.tr/ilcemiz/orumcek800x600.jpg" style="width: 1400px" alt="Kürtün Örümcek Ormanları">
+          </a>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Kürtün Örümcek Ormanları</h5>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Slider Kontrolleri -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#gezilecekYerlerCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Önceki</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#gezilecekYerlerCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Sonraki</span>
+      </button>
+    </div>
+    <!-- Carousel Bitişi -->
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
