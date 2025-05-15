@@ -6,7 +6,7 @@ Vue.createApp({
     methods: {
       validate() {
         let ok = true;
-        if (!/\S+@\S+\.\S+/.test(this.form.email)) ok = false;
+        if (!/\S+@\S+\.\S+/.test(this.form.email)) ok = false;        
         if (!/^\d+$/.test(this.form.phone)) ok = false;
         if (!this.form.message) ok = false;
         alert(ok ? 'Valid!' : 'Hatalı giriş!');

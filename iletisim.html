@@ -1,0 +1,104 @@
+<!--
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>İletişim</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="contactApp" class="container py-4">
+    <h2>İletişim Formu</h2>
+    <form @submit.prevent="handleSubmit" @reset.prevent="handleReset">
+      <div class="mb-3">
+        <label>Email</label>
+        <input v-model="form.email" type="email" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label>Telefon</label>
+        <input v-model="form.phone" type="text" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label>Mesaj</label>
+        <textarea v-model="form.message" class="form-control" required></textarea>
+      </div>
+      <button type="button" class="btn btn-secondary me-2" @click="validate()">Validate</button>
+      <button type="submit" class="btn btn-primary">Gönder</button>
+      <button type="reset" class="btn btn-warning">Temizle</button>
+    </form>
+    <div v-if="submitted">
+      <h3>Gönderilen Bilgiler</h3>
+      <pre>{{ form }}</pre>
+    </div>
+  </div>
+  <script src="contact.js"></script>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>İletişim</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div id="contactApp" class="container py-4">
+    <h2>İletişim Formu</h2>
+    <form ref="form" action="iletisim_sonuc.php" method="GET">
+      <div class="mb-3">
+        <label>Email</label>
+        <input v-model="form.email" name="email" type="text" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label>Telefon</label>
+        <input v-model="form.phone" name="phone" type="text" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label>Mesaj</label>
+        <textarea v-model="form.message" name="message" class="form-control"></textarea>
+      </div>
+      <button type="button" class="btn btn-secondary me-2" @click="validate">Validate</button>
+      <button type="button" class="btn btn-primary" @click="submit">Gönder</button>
+      <button type="reset" class="btn btn-warning" @click="resetForm">Temizle</button>
+      <div class="text-danger mt-2">{{ error }}</div>
+    </form>
+  </div>
+
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          form: { email: '', phone: '', message: '' },
+          error: ''
+        };
+      },
+      methods: {
+        validate() {
+          this.error = '';
+          if (!/\S+@\S+\.\S+/.test(this.form.email)) this.error = 'Geçersiz e-posta';
+          else if (!/^\d+$/.test(this.form.phone)) this.error = 'Telefon sadece rakam içermeli';
+          else if (!this.form.message.trim()) this.error = 'Mesaj boş olamaz';
+          else alert("Valid!");
+        },
+        submit() {
+          this.error = '';
+          if (!/\S+@\S+\.\S+/.test(this.form.email)) this.error = 'Geçersiz e-posta';
+          else if (!/^\d+$/.test(this.form.phone)) this.error = 'Telefon sadece rakam içermeli';
+          else if (!this.form.message.trim()) this.error = 'Mesaj boş olamaz';
+          else this.$refs.form.submit();
+        },
+        resetForm() {
+          this.form = { email: '', phone: '', message: '' };
+          this.error = '';
+        }
+      }
+    }).mount('#contactApp');
+  </script>
+</body>
+</html>
