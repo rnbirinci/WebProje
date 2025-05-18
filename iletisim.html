@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -8,6 +6,7 @@
   <title>İletişim</title>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div id="contactApp" class="container py-4">
@@ -28,14 +27,14 @@
       </div>
       <div class="mb-3">
         <label>Şehir</label>
-        <select name="city" class="form-select">
+        <select name="city" class="form-select" v-model="form.city">
           <option disabled selected value="">Şehir Seçin</option>
           <option v-for="city in sehirler" :key="city">{{ city }}</option>
         </select>
       </div>
       <div class="mb-3">
         <label>Mesaj</label>
-        <textarea name="message" class="form-control"></textarea>
+        <textarea name="message" class="form-control" v-model="form.message"></textarea>
       </div>
 
       <button type="button" class="btn btn-secondary me-2" @click="validate1">Doğrula (Vue)</button>
@@ -125,123 +124,6 @@
 </body>
 </html>
 
-<!-- ... (head kısmı aynı kalır) -->
- <!--
-<body>
-  <div id="contactApp" class="container py-4">
-    <h2>İletişim Formu</h2>
-    <form id="formElement" ref="form" action="iletisim_sonuc.php" method="GET" novalidate>
-      <div class="mb-3">
-        <label>Email</label>
-        <input v-model="form.email" name="email" type="text" class="form-control">
-      </div>
-      <div class="mb-3">
-        <label>Telefon (10 hane)</label>
-        <input v-model="form.phone" name="phone" type="text" class="form-control">
-      </div>
-      <div class="mb-3">
-        <label>Cinsiyet</label><br>
-        <input type="radio" name="gender" value="Erkek" v-model="form.gender"> Erkek
-        <input type="radio" name="gender" value="Kadın" v-model="form.gender"> Kadın
-      </div>
-      <div class="mb-3">
-        <label>Şehir</label>
-        <select name="city" v-model="form.city" class="form-select">
-          <option disabled selected value="">Şehir Seçin</option>
-          <option v-for="city in sehirler" :key="city">{{ city }}</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <label>Mesaj</label>
-        <textarea name="message" v-model="form.message" class="form-control"></textarea>
-      </div>
-
-      <button type="button" class="btn btn-secondary me-2" @click="validate1">Doğrula (Vue)</button>
-      <button type="button" class="btn btn-info me-2" onclick="validate2()">Doğrula (JS/Bootstrap)</button>
-      <button type="button" class="btn btn-primary" @click="submit">Gönder</button>
-      <button type="reset" class="btn btn-warning" @click="resetForm">Temizle</button>
-
-      <div class="text-danger mt-2">{{ error }}</div>
-    </form>
-  </div>
-
-  <script>
-    const app = Vue.createApp({
-      data() {
-        return {
-          form: {
-            email: '',
-            phone: '',
-            gender: '',
-            city: '',
-            message: ''
-          },
-          error: '',
-          sehirler: [
-            'Adana', 'Ankara', 'Antalya', 'Aydın', 'Balıkesir', 'Bursa', 'Denizli', 'Diyarbakır',
-            'Erzurum', 'Eskişehir', 'Gaziantep', 'Hatay', 'İstanbul', 'İzmir', 'Kahramanmaraş',
-            'Kayseri', 'Kocaeli', 'Konya', 'Malatya', 'Manisa', 'Mardin', 'Mersin', 'Muğla',
-            'Ordu', 'Sakarya', 'Samsun', 'Şanlıurfa', 'Tekirdağ', 'Trabzon', 'Van'
-          ]
-        };
-      },
-      methods: {
-        validate1() {
-          this.error = '';
-          if (!/\S+@\S+\.\S+/.test(this.form.email)) this.error = 'E-posta geçersiz';
-          else if (!/^\d{10}$/.test(this.form.phone)) this.error = 'Telefon 10 hane olmalı';
-          else if (!this.form.gender) this.error = 'Cinsiyet seçilmeli';
-          else if (!this.form.city) this.error = 'Şehir seçilmeli';
-          else if (!this.form.message.trim()) this.error = 'Mesaj boş olamaz';
-          else alert('Vue doğrulaması başarılı!');
-        },
-        submit() {
-          this.error = '';
-          if (
-            !this.form.email || !this.form.phone || !this.form.gender ||
-            !this.form.city || !this.form.message
-          ) {
-            this.error = 'Tüm alanları doldurmalısınız.';
-            return;
-          }
-          if (!/^\d{10}$/.test(this.form.phone)) {
-            this.error = 'Telefon 10 hane olmalı';
-            return;
-          }
-          this.$refs.form.submit();
-        },
-        resetForm() {
-          this.form = { email: '', phone: '', gender: '', city: '', message: '' };
-          this.error = '';
-        }
-      }
-    });
-
-    app.mount('#contactApp');
-
-    function validate2() {
-      const form = document.getElementById('formElement');
-      const email = form.querySelector('input[name="email"]').value.trim();
-      const phone = form.querySelector('input[name="phone"]').value.trim();
-      const genderChecked = form.querySelector('input[name="gender"]:checked');
-      const city = form.querySelector('select[name="city"]').value;
-      const message = form.querySelector('textarea[name="message"]').value.trim();
-
-      const validEmail = /\S+@\S+\.\S+/.test(email);
-      const validPhone = /^\d{10}$/.test(phone);
-      const validGender = !!genderChecked;
-      const validCity = city !== '';
-      const validMessage = message.length > 0;
-
-      const allValid = validEmail && validPhone && validGender && validCity && validMessage;
-
-      form.classList.add('was-validated');
-      alert(allValid ? "JS/Bootstrap doğrulama başarılı!" : "Eksik veya hatalı giriş var!");
-    }
-  </script>
-</body>
-</html>
--->
 
 
 

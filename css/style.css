@@ -1,7 +1,90 @@
-body { font-family: Arial, sans-serif; }
+/*body { font-family: Arial, sans-serif; }
 h1, h2 { margin-top: 1rem; }
 .carousel-item img { height: 400px; object-fit: cover; }
-/* Responsive: mobilde kaydırıcıyı küçült */
+/* Responsive: mobilde kaydırıcıyı küçült 
+
 @media(max-width:576px){
   .carousel-item img { height:200px; }
+} */
+
+/* Genel gövde */
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar-custom {
+  background-color: #0d6efd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+  color: white !important;
+  font-weight: 500;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #ffc107 !important;
+}
+
+/* Login kutusu */
+.login-box {
+  max-width: 400px;
+  margin: 100px auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h2 {
+  text-align: center;
+  color: #0d6efd;
+  margin-bottom: 1.5rem;
+}
+
+
+main.container {
+  background-color: white;
+  padding: 2rem;
+  margin-top: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #dc3545;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #dc3545;
+  padding-bottom: 0.5rem;
+}
+
+section h3 {
+  margin-top: 1.5rem;
+  color: #343a40;
+  border-left: 5px solid #0d6efd;
+  padding-left: 1rem;
+}
+
+article {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 4px solid #198754;
+  border-radius: 5px;
+}
+
+article h4 {
+  margin-bottom: 0.3rem;
+  color: #212529;
+}
+
+time {
+  color: #6c757d;
+  font-style: italic;
 }

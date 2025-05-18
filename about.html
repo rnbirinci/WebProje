@@ -5,14 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hakkımda</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="container py-4">
+  <div class="container py-4">
     <h1>Merhaba, ben Rana Nil Birinci</h1>
-    <p>Hobiler: Tatlı yapmak, piyano çalmak</p>
-    <p>Etkinlikler: Üniversite toplulukları, açık hava yürüyüşleri…</p>
-    <img src="hobi.jpg" class="img-fluid" alt="Hobi">
-  </header>
+    <p>Hobiler: Tatlı yapmak, piyano çalmak, yabancı dizi/film izlemek, spor yapmak</p>
+    <p>Etkinlikler: Açık hava yürüyüşleri…</p>
+  
+  <br>
+  <div id="hobilerCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <a href="https://www.timeturk.com/genel/tatli-yaparken-bu-puf-noktalar-aklinizda-bulunsun/haber-1713115" target="_blank">
+          <img src="https://www.timeturk.com/resim/detay/171/1713115.jpg" style="width: 1400px" alt="Tatı Yapmak">
+        </a>
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+
+        <div class="carousel-item">
+        <a href="https://sanatyorum.com/muzik/piyanoya-yeni-baslayanlara-5-onemli-tavsiye/" target="_blank">
+          <img src="https://sanatyorum.com/wp-content/uploads/2022/01/Piyano-2.jpg" style="width:1400px"  alt="Piyano Çalmak">
+        </a>
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <a href="https://blog.teknosa.com/teknoloji/evde-film-izlemeyi-sevenler-icin-10-teknoloji" target="_blank">
+          <img src="https://blog.teknosa.com/wp-content/uploads/2023/03/evde-film-izlemek-teknosa.jpg" style="width:1400px" alt="Yabancı Dizi/Film İzlemek">
+        </a>
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <a href="https://www.yalispor.com.tr/blog/evde-spor-yapanlarin-sahip-olmasi-gereken-spor-malzemeleri" target="_blank">
+          <img src="https://minio.yalispor.com.tr/yalispor/blog/evde-spor-yapanlarin-ihtiyac-duydugu-spor-malzemeleri_5f5e4dcbafb2d.jpg" style="width: 1400px" alt="Spor Yapmak">
+        </a>
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+
+    <div class="carousel-item">
+      <a href="https://www.heryerdespor.com/b/acik-havada-spor-yapmanin-faydalari-4279/" target="_blank">
+        <img src="/upload/data/images/blog/acik_havada_spor.jpg" style="width: 1400px" alt="Açok Hava Yürüyüşleri">
+      </a>
+      <div class="carousel-caption d-none d-md-block">
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#hobilerCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Önceki</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#hobilerCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Sonraki</span>
+    </button>
+  </div>
+ </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

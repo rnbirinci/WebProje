@@ -2,16 +2,16 @@
 
 $user = $_POST['user'] ?? '';
 $pass = $_POST['pass'] ?? '';
-$validUser = 'b1812100001@sakarya.edu.tr';
-$validPass = 'b1812100001';
+$validUser = 'rana.birinci@ogr.sakarya.edu.tr';
+$validPass = 'g231210552';
 if ($user === $validUser && $pass === $validPass) {
-  echo "<h1>Hoşgeldiniz, " . htmlspecialchars(substr($validPass,1)) . "!</h1>";
+  echo "<h1>Hoşgeldiniz, g231210552!</h1>";
 } else {
   header('Location: login.html');
 }
 
 
-
+//" . htmlspecialchars(substr($validPass,1)) .
 /* function is_valid_email($email) {
     return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
