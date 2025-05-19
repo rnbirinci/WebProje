@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div id="app" class="container py-4">
+  <main id="app" class="container">
     <h2>Filmler</h2>
     <ul>
       <li v-for="movie in movies" :key="movie.id">
@@ -18,7 +18,7 @@
         <em>{{ movie.year }}</em>
       </li>
     </ul>
-  </div>
+  </main>
   
 
   <script>
