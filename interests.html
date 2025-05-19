@@ -18,15 +18,6 @@
         <em>{{ movie.year }}</em>
       </li>
     </ul>
-    <h2>Kitaplar</h2>
-    <ul>
-      <li v-for="book in books" :key="book.id">
-        <img v-if="book.volumeInfo.imageLinks" :src="book.volumeInfo.imageLinks.thumbnail" alt="Kitap Kapak Resmi">
-        <strong>{{ book.volumeInfo.title }}</strong><br>
-        <em>{{ book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Yazar bilgisi yok' }}</em>
-      </li>
-    </ul>
-
   </div>
   
 
@@ -37,17 +28,13 @@
       data() {
         return {
           movies: [],
-          books: []
         };
       },
       async mounted() {
   try {
     const movieRes = await fetch('https://api.sampleapis.com/movies/classic');
-    const bookRes = await fetch('https://www.googleapis.com/books/v1/volumes?q=subject:fantasy');
 
     this.movies = (await movieRes.json()).slice(0, 5);
-    const booksData = await bookRes.json();
-    this.books = booksData.items ? booksData.items.slice(0, 5) : [];
   } catch (error) {
     console.error('API verisi alınamadı:', error);
   }
