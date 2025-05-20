@@ -32,9 +32,9 @@
       },
       async mounted() {
   try {
-    const movieRes = await fetch('https://api.sampleapis.com/movies/classic');
+    const movieRes = await fetch('https://api.sampleapis.com/movies/animation');
 
-    this.movies = (await movieRes.json()).slice(0, 5);
+    this.movies = (await movieRes.json()).slice(0, 15);
   } catch (error) {
     console.error('API verisi alınamadı:', error);
   }
