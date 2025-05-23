@@ -18,29 +18,29 @@
       </div>
       <div class="mb-3">
         <label>Telefon (10 hane)</label>
-        <input v-model="form.phone" name="phone" type="text" class="form-control">
+        <input v-model="form.telefon" name="telefon" type="text" class="form-control">
       </div>
       <div class="mb-3">
         <label>Cinsiyet</label><br>
-        <input type="radio" name="gender" value="Erkek" v-model="form.gender"> Erkek
-        <input type="radio" name="gender" value="Kadın" v-model="form.gender"> Kadın        
+        <input type="radio" name="cinsiyet" value="Erkek" v-model="form.cinsiyet"> Erkek
+        <input type="radio" name="cinsiyet" value="Kadın" v-model="form.cinsiyet"> Kadın        
       </div>
       <div class="mb-3">
         <label>Şehir</label>
-        <select name="city" class="form-select" v-model="form.city">
+        <select name="sehir" class="form-select" v-model="form.sehir">
           <option disabled selected value="">Şehir Seçin</option>
-          <option v-for="city in sehirler" :key="city">{{ city }}</option>
+          <option v-for="sehir in sehirler" :key="sehir">{{ sehir }}</option>
         </select>
       </div>
       <div class="mb-3">
         <label>Mesaj</label>
-        <textarea name="message" class="form-control" v-model="form.message"></textarea>
+        <textarea name="mesaj" class="form-control" v-model="form.mesaj"></textarea>
       </div>
 
-      <button type="button" class="btn btn-secondary me-2" @click="validate1">Doğrula (Vue)</button>
-      <button type="button" class="btn btn-info me-2" onclick="validate2()">Doğrula (JS/Bootstrap)</button>
-      <button type="button" class="btn btn-primary" @click="submit">Gönder</button>
-      <button type="reset" class="btn btn-warning" @click="resetForm">Temizle</button>
+      <button type="button" class="btn btn-secondary me-2" @click="dogrula1">Doğrula (Vue)</button>
+      <button type="button" class="btn btn-info me-2" onclick="dogrula2()">Doğrula (JS/Bootstrap)</button>
+      <button type="button" class="btn btn-primary" @click="gonder">Gönder</button>
+      <button type="reset" class="btn btn-warning" @click="formuTemizle">Temizle</button>
 
       <div class="text-danger mt-2">{{ error }}</div>
     </form>
@@ -52,10 +52,10 @@
         return {
           form: {
             email: '',
-            phone: '',
-            gender: '',
-            city: '',
-            message: ''
+            telefon: '',
+            cinsiyet: '',
+            sehir: '',
+            mesaj: ''
           },
           error: '',
           sehirler: [
@@ -67,32 +67,32 @@
         };
       },
       methods: {
-        validate1() {
+        dogrula1() {
           this.error = '';
           if (!/\S+@\S+\.\S+/.test(this.form.email)) this.error = 'E-posta geçersiz';
-          else if (!/^\d{10}$/.test(this.form.phone)) this.error = 'Telefon 10 hane olmalı';
-          else if (!this.form.gender) this.error = 'Cinsiyet seçilmeli';
-          else if (!this.form.city) this.error = 'Şehir seçilmeli';
-          else if (!this.form.message.trim()) this.error = 'Mesaj boş olamaz';
+          else if (!/^\d{10}$/.test(this.form.telefon)) this.error = 'Telefon 10 hane olmalı';
+          else if (!this.form.cinsiyet) this.error = 'Cinsiyet seçilmeli';
+          else if (!this.form.sehir) this.error = 'Şehir seçilmeli';
+          else if (!this.form.mesaj.trim()) this.error = 'Mesaj boş olamaz';
           else alert('Vue doğrulaması başarılı!');
         },
-        submit() {
+        gonder() {
           this.error = '';
           if (
-            !this.form.email || !this.form.phone || !this.form.gender ||
-            !this.form.city || !this.form.message
+            !this.form.email || !this.form.telefon || !this.form.cinsiyet ||
+            !this.form.sehir || !this.form.mesaj
           ) {
             this.error = 'Tüm alanları doldurmalısınız.';
             return;
           }
-          if (!/^\d{10}$/.test(this.form.phone)) {
+          if (!/^\d{10}$/.test(this.form.telefon)) {
             this.error = 'Telefon 10 hane olmalı';
             return;
           }
           this.$refs.form.submit();
         },
-        resetForm() {
-          this.form = { email: '', phone: '', gender: '', city: '', message: '' };
+        formuTemizle() {
+          this.form = { email: '', telefon: '', cinsiyet: '', sehir: '', mesaj: '' };
           this.error = '';
         }
       }
@@ -101,21 +101,21 @@
     app.mount('#contactApp');
 
     // JS + Bootstrap Doğrulama
-    function validate2() {
+    function dogrula2() {
       const form = document.getElementById('formElement');
       const email = form.querySelector('input[name="email"]').value.trim();
-      const phone = form.querySelector('input[name="phone"]').value.trim();
-      const genderChecked = form.querySelector('input[name="gender"]:checked');
-      const city = form.querySelector('select[name="city"]').value;
-      const message = form.querySelector('textarea[name="message"]').value.trim();
+      const telefon = form.querySelector('input[name="telefon"]').value.trim();
+      const cinsiyetChecked = form.querySelector('input[name="cinsiyet"]:checked');
+      const sehir = form.querySelector('select[name="sehir"]').value;
+      const mesaj = form.querySelector('textarea[name="mesaj"]').value.trim();
 
       const validEmail = /\S+@\S+\.\S+/.test(email);
-      const validPhone = /^\d{10}$/.test(phone);
-      const validGender = !!genderChecked;
-      const validCity = city !== '';
-      const validMessage = message.length > 0;
+      const validTelefon = /^\d{10}$/.test(telefon);
+      const validCinsiyet = !!cinsiyetChecked;
+      const validSehir = sehir !== '';
+      const validMesaj = mesaj.length > 0;
 
-      const allValid = validEmail && validPhone && validGender && validCity && validMessage;
+      const allValid = validEmail && validTelefon && validCinsiyet && validSehir && validMesaj;
 
       form.classList.add('was-validated');
       alert(allValid ? "JS/Bootstrap doğrulama başarılı!" : "Eksik veya hatalı giriş var!");
