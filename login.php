@@ -1,5 +1,4 @@
 <?php
-
 $kullanici = $_GET['kullanici'] ?? '';
 $sifre = $_GET['sifre'] ?? '';
 $validKullanici = 'rana.birinci@ogr.sakarya.edu.tr';
